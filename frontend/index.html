@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ManeMentor — Your AI Hair Care Journey Companion</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧔</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-gradient"></div>
+  <div class="bg-particles" id="particles"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" onclick="showSection('hero')">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#6366f1" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2.5" fill="none" />
+            <path d="M14 26 C14 18 16 12 20 10 C24 12 26 18 26 26" stroke="url(#logoGrad)" stroke-width="2" fill="none" stroke-linecap="round" />
+            <path d="M11 24 C11 16 15 10 20 8 C25 10 29 16 29 24" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5" />
+          </svg>
+        </div>
+        <span class="logo-text">Mane<span class="logo-accent">Mentor</span></span>
+      </a>
+      <nav class="nav">
+        <button class="nav-btn active" data-section="hero" onclick="showSection('hero')">
+          <span class="nav-icon">🏠</span>Home
+        </button>
+        <button class="nav-btn" data-section="assess" onclick="showSection('assess')">
+          <span class="nav-icon">🔬</span>Assessment
+        </button>
+        <button class="nav-btn" data-section="journey" onclick="showSection('journey')">
+          <span class="nav-icon">📈</span>Journey
+        </button>
+        <button class="nav-btn" data-section="chat" onclick="showSection('chat')">
+          <span class="nav-icon">💬</span>AI Chat
+        </button>
+        <button class="nav-btn" data-section="insights" onclick="showSection('insights')">
+          <span class="nav-icon">📊</span>Insights
+        </button>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="nav-btn" onclick="showSection('hero'); toggleMobileMenu()">🏠 Home</button>
+    <button class="nav-btn" onclick="showSection('assess'); toggleMobileMenu()">🔬 Assessment</button>
+    <button class="nav-btn" onclick="showSection('journey'); toggleMobileMenu()">📈 Journey</button>
+    <button class="nav-btn" onclick="showSection('chat'); toggleMobileMenu()">💬 AI Chat</button>
+    <button class="nav-btn" onclick="showSection('insights'); toggleMobileMenu()">📊 Insights</button>
+  </div>
+
+  <!-- ============= HERO SECTION ============= -->
+  <section id="hero" class="section section-hero active">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by Man Matters × Groq AI
+      </div>
+      <h1 class="hero-title">
+        Your Hair Care Journey,<br />
+        <span class="gradient-text">Reimagined with AI</span>
+      </h1>
+      <p class="hero-subtitle">
+        ManeMentor combines personalized stage assessment, real-time progress tracking, 
+        and AI-powered guidance to help you stay consistent, informed, and confident 
+        throughout your hair restoration journey.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="showSection('assess')">
+          <span>Start Your Assessment</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button class="btn btn-ghost btn-lg" onclick="showSection('insights')">
+          View Research Insights
+        </button>
+      </div>
+
+      <!-- Feature Cards -->
+      <div class="hero-features">
+        <div class="feature-card" data-aos="1">
+          <div class="feature-icon">🔬</div>
+          <h3>Smart Stage Assessment</h3>
+          <p>AI-powered quiz to identify your exact hair loss stage and get the right kit recommendation</p>
+        </div>
+        <div class="feature-card" data-aos="2">
+          <div class="feature-icon">📊</div>
+          <h3>Progress Tracking</h3>
+          <p>Week-by-week milestones with shedding alerts and adherence monitoring</p>
+        </div>
+        <div class="feature-card" data-aos="3">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Hair Coach</h3>
+          <p>Chat with ManeMentor AI for instant, personalized hair care guidance 24/7</p>
+        </div>
+        <div class="feature-card" data-aos="4">
+          <div class="feature-icon">🔔</div>
+          <h3>Smart Refill Reminders</h3>
+          <p>Never run out — automated refill scheduling with proactive delivery alerts</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scrolling Stats -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-number" data-count="5">0</span>
+        <span class="stat-label">Customer Interviews</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number" data-count="4">0</span>
+        <span class="stat-label">Key Pain Points Found</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number" data-count="1">0</span>
+        <span class="stat-label">Core Problem Solved</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number" data-count="100">0</span>
+        <span class="stat-label stat-percent">% AI-Powered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= ASSESSMENT SECTION ============= -->
+  <section id="assess" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Step 1</span>
+        <h2 class="section-title">Hair Loss <span class="gradient-text">Stage Assessment</span></h2>
+        <p class="section-desc">Answer 5 quick questions to determine your hair loss stage and get a personalized kit recommendation with timeline expectations.</p>
+      </div>
+
+      <!-- Assessment Quiz -->
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar" style="width: 20%"></div>
+          <span class="quiz-progress-text" id="quizProgressText">Question 1 of 5</span>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-question active" data-q="1">
+          <div class="question-number">01</div>
+          <h3>How much hair do you typically lose per day?</h3>
+          <p class="question-hint">Check your pillow, shower drain, and comb/brush</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q1" value="1" />
+              <div class="option-card">
+                <span class="option-emoji">😌</span>
+                <span class="option-text">Barely noticeable — a few strands here and there</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="2" />
+              <div class="option-card">
+                <span class="option-emoji">😐</span>
+                <span class="option-text">Moderate — I notice hair on my pillow and in the shower</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="3" />
+              <div class="option-card">
+                <span class="option-emoji">😟</span>
+                <span class="option-text">Significant — clumps of hair, visibly thinning areas</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="4" />
+              <div class="option-card">
+                <span class="option-emoji">😰</span>
+                <span class="option-text">Severe — large bald patches, scalp clearly visible</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-q="2">
+          <div class="question-number">02</div>
+          <h3>How long have you been experiencing hair loss?</h3>
+          <p class="question-hint">Think about when you first noticed changes</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q2" value="1" />
+              <div class="option-card">
+                <span class="option-emoji">📅</span>
+                <span class="option-text">Less than 6 months</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="2" />
+              <div class="option-card">
+                <span class="option-emoji">📆</span>
+                <span class="option-text">6 months to 1 year</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="3" />
+              <div class="option-card">
+                <span class="option-emoji">🗓️</span>
+                <span class="option-text">1 to 3 years</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="4" />
+              <div class="option-card">
+                <span class="option-emoji">⏰</span>
+                <span class="option-text">More than 3 years</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-q="3">
+          <div class="question-number">03</div>
+          <h3>Is there a family history of hair loss?</h3>
+          <p class="question-hint">Consider both maternal and paternal sides</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q3" value="1" />
+              <div class="option-card">
+                <span class="option-emoji">🧬</span>
+                <span class="option-text">No family history that I know of</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="2" />
+              <div class="option-card">
+                <span class="option-emoji">👨</span>
+                <span class="option-text">One parent/grandparent had thinning hair</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="3" />
+              <div class="option-card">
+                <span class="option-emoji">👨‍👦</span>
+                <span class="option-text">Multiple family members have significant hair loss</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="4" />
+              <div class="option-card">
+                <span class="option-emoji">👨‍👦‍👦</span>
+                <span class="option-text">Strong pattern — most male relatives are bald</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-q="4">
+          <div class="question-number">04</div>
+          <h3>Where do you primarily notice thinning or hair loss?</h3>
+          <p class="question-hint">Select the area that's most affected</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q4" value="1" />
+              <div class="option-card">
+                <span class="option-emoji">🔲</span>
+                <span class="option-text">Temples / hairline — slight recession</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="2" />
+              <div class="option-card">
+                <span class="option-emoji">⭕</span>
+                <span class="option-text">Crown area — thinning on top</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="3" />
+              <div class="option-card">
+                <span class="option-emoji">🔳</span>
+                <span class="option-text">Both temples and crown</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="4" />
+              <div class="option-card">
+                <span class="option-emoji">⬜</span>
+                <span class="option-text">Widespread — overall thinning across scalp</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-q="5">
+          <div class="question-number">05</div>
+          <h3>Have you tried any hair loss treatments before?</h3>
+          <p class="question-hint">This helps us understand your treatment history</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q5" value="1" />
+              <div class="option-card">
+                <span class="option-emoji">🆕</span>
+                <span class="option-text">No, this is my first time seeking treatment</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="2" />
+              <div class="option-card">
+                <span class="option-emoji">🧴</span>
+                <span class="option-text">Only over-the-counter shampoos and oils</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="3" />
+              <div class="option-card">
+                <span class="option-emoji">💊</span>
+                <span class="option-text">Tried supplements or topical solutions</span>
+              </div>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="4" />
+              <div class="option-card">
+                <span class="option-emoji">🏥</span>
+                <span class="option-text">Tried prescription treatments (Minoxidil, Finasteride)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn btn-ghost" id="prevBtn" onclick="prevQuestion()" disabled>
+            ← Previous
+          </button>
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+            Next →
+          </button>
+        </div>
+      </div>
+
+      <!-- Assessment Results -->
+      <div class="results-container hidden" id="resultsContainer">
+        <div class="results-card">
+          <div class="results-header">
+            <div class="results-badge" id="resultsBadge">Stage 1</div>
+            <h3 id="resultsTitle">Early Thinning</h3>
+            <p id="resultsDesc">Description</p>
+          </div>
+          <div class="results-body">
+            <div class="result-section">
+              <h4>🎯 Recommended Kit</h4>
+              <div class="kit-name" id="kitName">Stage 1 Hairfall Kit</div>
+              <div class="kit-contents" id="kitContents"></div>
+            </div>
+            <div class="result-section">
+              <h4>⏱️ Expected Timeline</h4>
+              <p id="kitTimeline"></p>
+            </div>
+            <div class="result-section">
+              <h4>💡 Pro Tips</h4>
+              <ul id="kitTips"></ul>
+            </div>
+          </div>
+          <div class="results-footer">
+            <button class="btn btn-primary" onclick="showSection('journey')">
+              Start Your Journey Tracker →
+            </button>
+            <button class="btn btn-ghost" onclick="resetQuiz()">
+              Retake Assessment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= JOURNEY TRACKER SECTION ============= -->
+  <section id="journey" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Step 2</span>
+        <h2 class="section-title">Your Hair <span class="gradient-text">Journey Tracker</span></h2>
+        <p class="section-desc">Track your progress week by week, understand what's normal, and stay motivated throughout your treatment.</p>
+      </div>
+
+      <!-- Journey Dashboard -->
+      <div class="journey-dashboard">
+        <!-- Week Selector -->
+        <div class="week-selector">
+          <label for="weekSlider">Select your current week:</label>
+          <div class="slider-container">
+            <input type="range" id="weekSlider" min="1" max="16" value="1" oninput="updateJourney(this.value)" />
+            <div class="slider-labels">
+              <span>Week 1</span>
+              <span>Week 8</span>
+              <span>Week 16</span>
+            </div>
+          </div>
+          <div class="current-week-display">
+            <span class="week-number" id="currentWeekNum">1</span>
+            <span class="week-label">Current Week</span>
+          </div>
+        </div>
+
+        <!-- Progress Ring -->
+        <div class="progress-section">
+          <div class="progress-ring-container">
+            <svg class="progress-ring" viewBox="0 0 200 200">
+              <circle class="progress-ring-bg" cx="100" cy="100" r="85" />
+              <circle class="progress-ring-fill" id="progressRingFill" cx="100" cy="100" r="85" />
+            </svg>
+            <div class="progress-ring-text">
+              <span class="progress-percent" id="progressPercent">6%</span>
+              <span class="progress-label">Complete</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current Milestone -->
+        <div class="milestone-card" id="milestoneCard">
+          <div class="milestone-icon" id="milestoneIcon">🌱</div>
+          <h3 class="milestone-title" id="milestoneTitle">Getting Started</h3>
+          <p class="milestone-message" id="milestoneMessage">Your hair journey begins!</p>
+          <div class="milestone-tip" id="milestoneTip">
+            <span class="tip-label">💡 Tip:</span>
+            <span class="tip-text">Set a daily alarm for your gummies and serum.</span>
+          </div>
+        </div>
+
+        <!-- Symptom Checker -->
+        <div class="symptom-checker">
+          <h4>How are you feeling this week?</h4>
+          <div class="symptom-options">
+            <label class="symptom-option">
+              <input type="checkbox" value="increased_shedding" onchange="checkSymptoms()" />
+              <div class="symptom-card">
+                <span>😟</span>
+                <span>More hair shedding</span>
+              </div>
+            </label>
+            <label class="symptom-option">
+              <input type="checkbox" value="less_shedding" onchange="checkSymptoms()" />
+              <div class="symptom-card">
+                <span>😊</span>
+                <span>Less shedding</span>
+              </div>
+            </label>
+            <label class="symptom-option">
+              <input type="checkbox" value="new_growth" onchange="checkSymptoms()" />
+              <div class="symptom-card">
+                <span>🌱</span>
+                <span>New baby hairs</span>
+              </div>
+            </label>
+            <label class="symptom-option">
+              <input type="checkbox" value="no_change" onchange="checkSymptoms()" />
+              <div class="symptom-card">
+                <span>😐</span>
+                <span>No change yet</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Alerts Area -->
+        <div class="alerts-container" id="alertsContainer"></div>
+
+        <!-- Adherence Tracker -->
+        <div class="adherence-section">
+          <h4>Daily Adherence This Week</h4>
+          <div class="adherence-grid">
+            <button class="day-btn" data-day="mon" onclick="toggleDay(this)">Mon</button>
+            <button class="day-btn" data-day="tue" onclick="toggleDay(this)">Tue</button>
+            <button class="day-btn" data-day="wed" onclick="toggleDay(this)">Wed</button>
+            <button class="day-btn" data-day="thu" onclick="toggleDay(this)">Thu</button>
+            <button class="day-btn" data-day="fri" onclick="toggleDay(this)">Fri</button>
+            <button class="day-btn" data-day="sat" onclick="toggleDay(this)">Sat</button>
+            <button class="day-btn" data-day="sun" onclick="toggleDay(this)">Sun</button>
+          </div>
+          <div class="adherence-bar">
+            <div class="adherence-fill" id="adherenceFill" style="width: 0%"></div>
+          </div>
+          <p class="adherence-text" id="adherenceText">Mark the days you used your kit this week</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="journey-timeline">
+          <h4>Your 16-Week Journey Map</h4>
+          <div class="timeline" id="journeyTimeline"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= AI CHAT SECTION ============= -->
+  <section id="chat" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Step 3</span>
+        <h2 class="section-title">Chat with <span class="gradient-text">ManeMentor AI</span></h2>
+        <p class="section-desc">Get instant, personalized answers about your hair care journey. Powered by Groq AI.</p>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-message bot">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              <div class="message-bubble">
+                Hey there! 👋 I'm ManeMentor, your AI hair care companion. I'm here to help you understand your hair care journey, answer questions about your treatment, and keep you motivated. What would you like to know?
+              </div>
+              <div class="message-time">Just now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="chat-quick-actions">
+          <button class="quick-btn" onclick="sendQuickMessage('Is shedding in week 3 normal?')">😟 Shedding concerns</button>
+          <button class="quick-btn" onclick="sendQuickMessage('When will I start seeing results?')">⏰ When to expect results</button>
+          <button class="quick-btn" onclick="sendQuickMessage('I keep forgetting to take my gummies. Any tips?')">💊 Adherence tips</button>
+          <button class="quick-btn" onclick="sendQuickMessage('What foods help with hair growth?')">🥗 Diet for hair</button>
+          <button class="quick-btn" onclick="sendQuickMessage('Which stage kit is right for me?')">🎯 Stage guidance</button>
+        </div>
+
+        <div class="chat-input-area">
+          <div class="chat-input-container">
+            <textarea 
+              id="chatInput" 
+              placeholder="Ask ManeMentor anything about your hair care journey..."
+              rows="1"
+              onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault(); sendMessage()}"
+              oninput="autoResize(this)"
+            ></textarea>
+            <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </button>
+          </div>
+          <p class="chat-disclaimer">ManeMentor provides general guidance. For medical advice, consult a dermatologist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= RESEARCH INSIGHTS SECTION ============= -->
+  <section id="insights" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Research</span>
+        <h2 class="section-title">Customer <span class="gradient-text">Research Insights</span></h2>
+        <p class="section-desc">Key findings from real customer conversations about Man Matters Stage 1 Hairfall Kit.</p>
+      </div>
+
+      <!-- Problem Statement -->
+      <div class="insight-hero-card">
+        <div class="insight-hero-label">Core Problem Statement</div>
+        <h3>Customers lack structured guidance, progress visibility, and real-time support during their hair care journey — leading to anxiety during the shedding phase, poor treatment adherence, and premature product abandonment before results appear.</h3>
+        <div class="insight-hero-stats">
+          <div class="ihs">
+            <span class="ihs-num">80%</span>
+            <span class="ihs-label">Felt anxious about shedding</span>
+          </div>
+          <div class="ihs">
+            <span class="ihs-num">60%</span>
+            <span class="ihs-label">Struggled with adherence</span>
+          </div>
+          <div class="ihs">
+            <span class="ihs-num">40%</span>
+            <span class="ihs-label">Almost quit before results</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Cards -->
+      <h3 class="insights-subtitle">Customer Conversations Summary</h3>
+      <div class="customer-grid">
+        <div class="customer-card">
+          <div class="cc-header">
+            <div class="cc-avatar">C1</div>
+            <div class="cc-info">
+              <h4>Customer 1</h4>
+              <span class="cc-product">Stage 1 Hairfall Kit</span>
+            </div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-why">Why They Purchased</span>
+              <p>A friend with similar thinning suggested they try it</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-like">What They Liked</span>
+              <p>Gummies are simple to take daily; shedding reduced by month 4</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-dislike">Pain Point</span>
+              <p>Skipped gummies on hectic days — broke the habit</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-want">What They Want</span>
+              <p>Daily nudges via app or WhatsApp reminders</p>
+            </div>
+          </div>
+          <div class="cc-pattern">
+            <span>🔗 Pattern:</span> Adherence & Reminders
+          </div>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-header">
+            <div class="cc-avatar">C2</div>
+            <div class="cc-info">
+              <h4>Customer 2</h4>
+              <span class="cc-product">Stage 1 Hairfall Kit</span>
+            </div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-why">Why They Purchased</span>
+              <p>At 24, kept finding more hair on pillow; wanted to avoid prescription drugs</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-like">What They Liked</span>
+              <p>Hair fall eased after ~10 weeks; gummies taste nice</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-dislike">Pain Point</span>
+              <p>No visible change for first 5 weeks — almost gave up entirely</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-want">What They Want</span>
+              <p>A progress tracker showing whether it's working before day 90</p>
+            </div>
+          </div>
+          <div class="cc-pattern">
+            <span>🔗 Pattern:</span> Slow-Results Anxiety
+          </div>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-header">
+            <div class="cc-avatar">C3</div>
+            <div class="cc-info">
+              <h4>Customer 3</h4>
+              <span class="cc-product">Stage 1 Hairfall Kit</span>
+            </div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-why">Why They Purchased</span>
+              <p>Baldness runs in family; wanted to get ahead of it early</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-like">What They Liked</span>
+              <p>Noticeably fewer strands in the shower drain</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-dislike">Pain Point</span>
+              <p>Shedding in week 3 was temporary but really alarming</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-want">What They Want</span>
+              <p>Upfront heads-up that short-term shedding is normal</p>
+            </div>
+          </div>
+          <div class="cc-pattern">
+            <span>🔗 Pattern:</span> Shedding Anxiety
+          </div>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-header">
+            <div class="cc-avatar">C4</div>
+            <div class="cc-info">
+              <h4>Customer 4</h4>
+              <span class="cc-product">Stage 1 Hairfall Kit</span>
+            </div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-why">Why They Purchased</span>
+              <p>Didn't want to risk side effects of Minoxidil or Finasteride</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-like">What They Liked</span>
+              <p>Zero side effects; hair looks slightly fuller after 3 months</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-dislike">Pain Point</span>
+              <p>Couldn't tell if they were Stage 1 or Stage 2</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-want">What They Want</span>
+              <p>A clear stage check explaining why a particular kit is suggested</p>
+            </div>
+          </div>
+          <div class="cc-pattern">
+            <span>🔗 Pattern:</span> Staging Confusion
+          </div>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-header">
+            <div class="cc-avatar">C5</div>
+            <div class="cc-info">
+              <h4>Customer 5</h4>
+              <span class="cc-product">Stage 1 Hairfall Kit</span>
+            </div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-why">Why They Purchased</span>
+              <p>Stressful new job and erratic sleep taking a toll on hair</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-like">What They Liked</span>
+              <p>Shedding dropped; shampoo has a pleasant scent</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-dislike">Pain Point</span>
+              <p>Refill took 12 days to arrive — supply ran out</p>
+            </div>
+            <div class="cc-section">
+              <span class="cc-tag cc-tag-want">What They Want</span>
+              <p>Quicker delivery with proactive shipment updates</p>
+            </div>
+          </div>
+          <div class="cc-pattern">
+            <span>🔗 Pattern:</span> Delivery Delays
+          </div>
+        </div>
+      </div>
+
+      <!-- Pattern Analysis -->
+      <h3 class="insights-subtitle">Pattern Analysis</h3>
+      <div class="patterns-grid">
+        <div class="pattern-card pattern-primary">
+          <div class="pattern-rank">#1</div>
+          <div class="pattern-content">
+            <h4>Journey Anxiety & Lack of Progress Visibility</h4>
+            <p>4 out of 5 customers experienced anxiety about whether the treatment was working. The combination of temporary shedding, slow visible results, and no way to track progress created a dangerous "should I quit?" moment around weeks 3–5.</p>
+            <div class="pattern-customers">Customers: C1, C2, C3, C4</div>
+          </div>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-rank">#2</div>
+          <div class="pattern-content">
+            <h4>Poor Treatment Adherence</h4>
+            <p>Customers struggle to maintain daily consistency, especially during busy periods. Without reminders or accountability, they skip doses which delays results further.</p>
+            <div class="pattern-customers">Customers: C1, C2</div>
+          </div>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-rank">#3</div>
+          <div class="pattern-content">
+            <h4>Stage Confusion & Kit Mismatch Fear</h4>
+            <p>Customers can't self-assess their hair loss stage, leading to fear of using the wrong kit and getting suboptimal results.</p>
+            <div class="pattern-customers">Customers: C4</div>
+          </div>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-rank">#4</div>
+          <div class="pattern-content">
+            <h4>Supply Chain & Refill Disruption</h4>
+            <p>Late refills break treatment consistency, undermining the very adherence the product depends on.</p>
+            <div class="pattern-customers">Customers: C5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution Explanation -->
+      <div class="solution-card">
+        <div class="solution-header">
+          <span class="solution-badge">✨ Our Solution</span>
+          <h3>ManeMentor — AI-Powered Hair Care Journey Companion</h3>
+        </div>
+        <div class="solution-body">
+          <p><strong>Why this problem over others:</strong> Journey anxiety and lack of progress visibility is the root cause that amplifies every other problem. When customers can't see if the treatment works, they skip doses (worsening adherence), panic at normal shedding (increasing churn), and abandon treatment before results appear (wasting their investment). Solving this one problem creates a cascading positive effect on all others.</p>
+          <div class="solution-features">
+            <div class="sf">
+              <div class="sf-icon">🔬</div>
+              <h5>Smart Stage Assessment</h5>
+              <p>Eliminates staging confusion with a guided quiz that explains the reasoning behind each recommendation</p>
+            </div>
+            <div class="sf">
+              <div class="sf-icon">📊</div>
+              <h5>Week-by-Week Progress Map</h5>
+              <p>Shows customers exactly where they are, what's normal at this stage, and what to expect next — eliminating the "is it working?" anxiety</p>
+            </div>
+            <div class="sf">
+              <div class="sf-icon">⚠️</div>
+              <h5>Proactive Shedding Alerts</h5>
+              <p>Warns customers about the shedding phase BEFORE it happens, with science-backed reassurance</p>
+            </div>
+            <div class="sf">
+              <div class="sf-icon">🤖</div>
+              <h5>AI Hair Coach</h5>
+              <p>24/7 Groq-powered AI assistant that answers questions instantly, reducing support tickets and customer anxiety</p>
+            </div>
+            <div class="sf">
+              <div class="sf-icon">✅</div>
+              <h5>Adherence Tracking</h5>
+              <p>Daily check-in system with weekly adherence scores and gentle nudges to maintain consistency</p>
+            </div>
+            <div class="sf">
+              <div class="sf-icon">🔔</div>
+              <h5>Smart Refill Scheduling</h5>
+              <p>Proactive refill reminders 5 days before running out, preventing supply gaps</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">Mane<span class="logo-accent">Mentor</span></span>
+        <p>AI-Powered Hair Care Journey Companion</p>
+        <p class="footer-sub">Built for Man Matters (Mosaic) • Powered by Groq AI</p>
+      </div>
+      <div class="footer-links">
+        <h5>Features</h5>
+        <a href="#" onclick="showSection('assess')">Stage Assessment</a>
+        <a href="#" onclick="showSection('journey')">Journey Tracker</a>
+        <a href="#" onclick="showSection('chat')">AI Chat</a>
+        <a href="#" onclick="showSection('insights')">Research Insights</a>
+      </div>
+      <div class="footer-links">
+        <h5>About</h5>
+        <a href="#">Brand: Man Matters</a>
+        <a href="#">Product: Stage 1 Hairfall Kit</a>
+        <a href="#">5 Customer Interviews</a>
+        <a href="#">Built with Groq AI</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ManeMentor — Crafted as a technology-driven solution for Mosaic Brands</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

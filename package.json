@@ -1,0 +1,20 @@
+{
+  "name": "manementor",
+  "version": "1.0.0",
+  "description": "ManeMentor - AI-Powered Hair Care Journey Companion for Man Matters",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "groq-sdk": "^0.5.0"
+  },
+  "keywords": ["hair-care", "ai", "man-matters", "mosaic"],
+  "author": "Xomoplete",
+  "license": "MIT"
+}
+
