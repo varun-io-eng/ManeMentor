@@ -196,7 +196,7 @@ Use a warm, supportive tone. You're a knowledgeable friend, not a medical profes
         { role: 'system', content: systemPrompt },
         { role: 'user', content: message }
       ],
-      model: 'llama-3.1-8b-instant',
+      model: 'openai/gpt-oss-20b',
       temperature: 0.7,
       max_tokens: 500
     });
@@ -206,7 +206,8 @@ Use a warm, supportive tone. You're a knowledgeable friend, not a medical profes
       source: 'groq'
     });
   } catch (error) {
-    console.error('Groq API error:', error);
+    console.error('Groq API error:', error.message || error);
+    console.error('GROQ_API_KEY set:', !!process.env.GROQ_API_KEY);
     res.json({
       reply: getOfflineResponse(message),
       source: 'offline-fallback'
@@ -275,7 +276,7 @@ function getOfflineResponse(message) {
     return "A balanced diet supports hair health! Focus on: protein (eggs, fish, lentils), iron (spinach, red meat), zinc (nuts, seeds), biotin (eggs, sweet potatoes), and omega-3s (fish, walnuts). Stay hydrated, manage stress, and get 7–8 hours of sleep. These lifestyle factors work alongside your kit to give you the best results. 🥗";
   }
   
-  return "I'm ManeMentor, your AI hair care companion! I can help you with: understanding your hair loss stage, tracking your treatment progress, managing shedding concerns, optimizing your routine, and answering questions about Man Matters products. Please add your Groq API key in the .env file for full AI-powered responses. What would you like to know? 🧔";
+  return "I'm ManeMentor, your AI hair care companion! I can help you with: understanding your hair loss stage, tracking your treatment progress, managing shedding concerns, optimizing your routine, and answering questions about Man Matters products. Our AI-powered responses are temporarily unavailable. Please try again shortly! 🧔";
 }
 
 // Serve frontend
